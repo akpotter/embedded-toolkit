@@ -53,7 +53,8 @@ $ V=1 make
 ... add -static as a flag and run the command ...
 ... see example below ...
 $ ls gdbserver
-$
+... you have gdbserver, huzzah ...
+```
 
 ### Example of fixing the final gcc command 
 
