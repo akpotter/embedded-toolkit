@@ -81,5 +81,5 @@ I noticed that when using an actual MIPS archtecture OS to perform this build, I
 WARNING: THIS IS A DANGEROUS COMMAND IF YOU DON'T KNOW WHAT YOU ARE DOING! IT IS ALMOST CERTAINLY A BETTER IDEA TO PATCH GDB CONFIGURE OR MAKEFILE FILES!
 
 ```
-find / -name libthread_db\* -exec mv {} {}.oldlibthread_db.so and libthread_db.h
+find / -name libthread_db\* -exec mv {} {}.bak \;
 ```
