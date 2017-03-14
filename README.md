@@ -83,3 +83,6 @@ WARNING: THIS IS A DANGEROUS COMMAND IF YOU DON'T KNOW WHAT YOU ARE DOING! IT IS
 ```
 find / -name libthread_db\* -exec mv {} {}.bak \;
 ```
+#### How do I know these binaries aren't backdoored?
+
+They aren't. But you'll have to trust me on that unless you want to figure out how to build them yourself. It's not the most trivial thing to document and I don't really have the time if I wanted to
