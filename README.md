@@ -19,9 +19,10 @@ I didn't keep very good documentation as a built all of these, I can't even tell
 gdbserver-7.7.1-armel:            ELF 32-bit LSB executable, ARM, version 1, statically linked, for GNU/Linux 2.4.3
 gdbserver-7.7.1-armel-eabi5-sysv: ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), statically linked, for GNU/Linux 2.6.26
 gdbserver-7.7.1-armhf-eabi5-sysv: ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), statically linked, for GNU/Linux 2.6.26
-gdbserver-7.7.1-mipsel-i:         ELF 32-bit LSB executable, MIPS, MIPS32 version 1 (SYSV), statically linked
+gdbserver-7.7.1-mipsel-mips32:    ELF 32-bit LSB executable, MIPS, MIPS32 version 1 (SYSV), statically linked
 gdbserver-7.7.1-mipsel-ii:        ELF 32-bit LSB executable, MIPS, MIPS-II version 1, statically linked, for GNU/Linux 2.6.26
 gdbserver-7.7.1-mips-ii:          ELF 32-bit MSB executable, MIPS, MIPS-II version 1, statically linked, for GNU/Linux 2.6.26
+gdbserver-7.7.1-mips-mips32:      ELF 32-bit MSB executable, MIPS, MIPS32 version 1, statically linked, for GNU/Linux 2.6.26
 ```
 
 These are not stripped, go ahead and strip them if you want
