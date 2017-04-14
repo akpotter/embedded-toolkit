@@ -23,6 +23,7 @@ gdbserver-7.7.1-mipsel-mips32:    ELF 32-bit LSB executable, MIPS, MIPS32 versio
 gdbserver-7.7.1-mipsel-ii:        ELF 32-bit LSB executable, MIPS, MIPS-II version 1, statically linked, for GNU/Linux 2.6.26
 gdbserver-7.7.1-mips-ii:          ELF 32-bit MSB executable, MIPS, MIPS-II version 1, statically linked, for GNU/Linux 2.6.26
 gdbserver-7.7.1-mips-mips32:      ELF 32-bit MSB executable, MIPS, MIPS32 version 1, statically linked, for GNU/Linux 2.6.26
+gdbserver-7.7.1-mips-i:           ELF 32-bit MSB executable, MIPS, MIPS-I version 1 (SYSV), statically linked, not stripped
 ```
 
 These are not stripped, go ahead and strip them if you want
