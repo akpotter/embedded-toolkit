@@ -40,6 +40,19 @@ If you'd like another target architecture, either file an issue or send a pull r
 
 ## General tips on performing a static build of GDB 7.7.1
 
+If you're all properly set up with a toolchain, for example the Broadcom toolchain, this might be all you need for GDB:
+
+
+```
+$ tar -xzf gdb-7.7.1.tgz
+$ cd gdb-7.7.1/gdb/gdbserver
+$ ./configure --host=mipsel-linux-uclibc --disable-werror CFLAGS='-isysroot /opt/brcm/hndtools-mipsel-linux/'
+$ make -j
+$ rm -f gdbserver
+$ V=1 make
+... modify the final build command as below with libdl and -static ...
+```
+
 There is no supported what that I have found to to a static build of GDB 7.7.1. So I have my own routine. It is roughly like this:
 
 ```
