@@ -1,9 +1,11 @@
-# static-gdbserver-embedded
-Prebuilt gdbserver executables for ARMEL, ARMHF, MIPSEL and MIPS platforms for Linux
+# arm-mips-tools
+Statically linked executables for different variants of ARM and MIPS Linux systems (MSB, LSB, different ABIs, etc.)
 
 ## Intro
 
 I recently needed a statically linked gdbserver for all of the above platforms, as well as some subtle variants. It was a little bit painful to build all of them, so I figured I would share them. Please, if you find them useful, take them. They are built from vanilla GDB 7.7.1 sources, with a small tweak to the final linking to get a static build. There was also some hackery required in some cases for unknown reasons, possibly bugs with gdb, to fix up missing #define values and such. Also, when compiling on native architectures, in many cases I had to make sure the GDB build process didn't try to include thread support since there aren't any common packages (I've noticed) that have static libraries for libthread_db and the configure script will enable libthread_db if it detects it on your system
+
+This repository has expanded to include more than gdbserver obviously, but most of the notes here are about gdbserver
 
 ## Notes
 
