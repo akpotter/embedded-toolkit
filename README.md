@@ -1,16 +1,38 @@
 # arm-mips-tools
-Statically linked executables for different variants of ARM and MIPS Linux systems (MSB, LSB, different ABIs, etc.)
+Statically linked executables + musl libc for different variants of ARM and MIPS Linux systems (MSB, LSB, different ABIs, etc.)
 
 ## Intro
 
 I recently needed a statically linked gdbserver for all of the above platforms, as well as some subtle variants. It was a little bit painful to build all of them, so I figured I would share them. Please, if you find them useful, take them. They are built from vanilla GDB 7.7.1 sources, with a small tweak to the final linking to get a static build. There was also some hackery required in some cases for unknown reasons, possibly bugs with gdb, to fix up missing #define values and such. Also, when compiling on native architectures, in many cases I had to make sure the GDB build process didn't try to include thread support since there aren't any common packages (I've noticed) that have static libraries for libthread_db and the configure script will enable libthread_db if it detects it on your system
 
-This repository has expanded to include more than gdbserver obviously, but most of the notes here are about gdbserver
+This repository has expanded to include more than gdbserver obviously, but most of the notes here are about gdbserver.
+
+Being added slowly for different CPU instruction sets, endianness, revisions and ABIs:
+
+*libpcap (static library)
+*tcpdump (statically linked)
+*gawk (statically linked)
+*lsof (statically linked)
+*gdbserv (statically linked)
+*tshd (statically linked)
+
+These tools are all of obvious value on embedded devices, except mayhe gawk. Why gawk?
+
+```
+$ while [ 1 ];
+> do
+> /usr/sbin/process/that/forks/and/detaches; sleep 1;./gdbs --attach :12345 $(ps w | grep detache[s] | awk '{print $1}')
+> done
+```
+
+This is a lot easier than checking the PID after manually restarting the process each time (assuming it is crashing a lot, and it is being analyzed upon each crash remotely.will save a TON of time
+
 
 ## Notes
 
-* These are statically linked with libdl.a but obviously libdl doesn't function on statically linked executables. I haven't run into any issues with it though, I haven't looked into what gdbserver would use libdl for. 
-* There is no threading support
+* Some are linked with glibc or uClibc- this is a problem, moreso for some than others. They are slowly all being built with musl libc to get rid of all the issues with nsswitch.conf libraries.
+* There will always be issues with gdbserver needing support for dlopen()/dlsym() but I haven't come across a case where it was actually needed/used, nor have I encountered a crash
+* There is no threading support in gdbserver right now, intentionally
 * Yes, you have to just trust me on these being 'safe' otherwise you can go build your own :>
 
 ## More detailed information on the build targets
@@ -30,7 +52,7 @@ gdbserver-6.8-mips-i-rtl819x-lexra: ELF 32-bit MSB executable, MIPS, MIPS-I vers
 
 ```
 
-These are not stripped, go ahead and strip them if you want
+These are not stripped, go ahead and strip them if you want. And once more, there are now many more than just gdbserver executables in this repository, explore the directory tree
 
 Note the special rtl819x-lexra build. This is a build specific to rtl819x SoC with Lexra CPU. Lexra CPUs are a MIPS-I with some instructions not implemented (unaligned loads, stores, shifts)
 
