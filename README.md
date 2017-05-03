@@ -35,29 +35,6 @@ This is a lot easier than checking the PID after manually restarting the process
 * There is no threading support in gdbserver right now, intentionally
 * Yes, you have to just trust me on these being 'safe' otherwise you can go build your own :>
 
-## More detailed information on the build targets
-
-I didn't keep very good documentation as a built all of these, I can't even tell you for sure which --target parameter I used. I tried to name each binary intuitively and as correctly as I could but here is a quick summary of each based on output from file(1)
-
-```
-gdbserver-7.7.1-armel:              ELF 32-bit LSB executable, ARM, version 1, statically linked, for GNU/Linux 2.4.3
-gdbserver-7.7.1-armel-eabi5-sysv:   ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), statically linked, for GNU/Linux 2.6.26
-gdbserver-7.7.1-armhf-eabi5-sysv:   ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), statically linked, for GNU/Linux 2.6.26
-gdbserver-7.7.1-mipsel-mips32:      ELF 32-bit LSB executable, MIPS, MIPS32 version 1 (SYSV), statically linked
-gdbserver-7.7.1-mipsel-ii:          ELF 32-bit LSB executable, MIPS, MIPS-II version 1, statically linked, for GNU/Linux 2.6.26
-gdbserver-7.7.1-mips-ii:            ELF 32-bit MSB executable, MIPS, MIPS-II version 1, statically linked, for GNU/Linux 2.6.26
-gdbserver-7.7.1-mips-mips32:        ELF 32-bit MSB executable, MIPS, MIPS32 version 1, statically linked, for GNU/Linux 2.6.26
-gdbserver-7.7.1-mips-i:             ELF 32-bit MSB executable, MIPS, MIPS-I version 1 (SYSV), statically linked, not stripped
-gdbserver-6.8-mips-i-rtl819x-lexra: ELF 32-bit MSB executable, MIPS, MIPS-I version 1 (SYSV), statically linked, not stripped
-
-```
-
-These are not stripped, go ahead and strip them if you want. And once more, there are now many more than just gdbserver executables in this repository, explore the directory tree
-
-Note the special rtl819x-lexra build. This is a build specific to rtl819x SoC with Lexra CPU. Lexra CPUs are a MIPS-I with some instructions not implemented (unaligned loads, stores, shifts)
-
-Thanks to https://github.com/KrabbyPatty/rtl819x-toolchain for making a toolchain available to build this. I was unable to get gdb 7.7.1 to build, so it is version 6.8.
-
 ## Other targets
 
 If you'd like another target architecture, either file an issue or send a pull request, I'd be happy to have a wider collection of these as I do a fair amount of work on embedded devices and seem to always be coming across ones that I don't already have a build for
