@@ -7,14 +7,14 @@ I recently needed a statically linked gdbserver for all of the above platforms, 
 
 This repository has expanded to include more than gdbserver obviously, but most of the notes here are about gdbserver.
 
-Being added slowly for different CPU instruction sets, endianness, revisions and ABIs:
+Being added slowly for different CPU instruction sets, endianness, revisions and ABIs- mostly untested, so beware. Only gdbserver has been thoroughly tested:
 
-*libpcap (static library)
-*tcpdump (statically linked)
-*gawk (statically linked)
-*lsof (statically linked)
-*gdbserv (statically linked)
-*tshd (statically linked)
+* libpcap (static library)
+* tcpdump (statically linked)
+* gawk (statically linked)
+* lsof (statically linked)
+* gdbserv (statically linked)
+* tshd (statically linked)
 
 These tools are all of obvious value on embedded devices, except mayhe gawk. Why gawk?
 
