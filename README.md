@@ -7,7 +7,7 @@ I recently needed a statically linked gdbserver for all of the above platforms, 
 
 This repository has expanded to include more than gdbserver obviously, but most of the notes here are about gdbserver.
 
-Being added slowly for different CPU instruction sets, endianness, revisions and ABIs- mostly untested, so beware. Only gdbserver has been thoroughly tested:
+Being added slowly for different CPU architectures with varying instruction sets, byte-order, and ABI. These are mostly untested, so beware. Only gdbserver has been thoroughly tested. You will only find a few different builds of the following tools in this repository
 
 * libpcap (static library)
 * tcpdump (statically linked)
