@@ -1,14 +1,21 @@
 ## lsof
 
-untar, source the env.src (after updating it to what you need), then run ./Configure. You can try a straight up 'make' command, it may work for you. If you get errors about TCP_SYN_SENT and such, you'll have to copy the enum containing these values from netinet/in.h in the system to dsock.c
+See env.src for an example of how to set up lsof for cross-compilation
 
-Then, make should would fine. After make is successful:
+## Basic steps after sourcing env.src
 
 ```
-rm lsof
-V=1 make
+$ vi env.src
+... plug in appropriate values ...
+$ source env.src
+$ tar -xvf lsof_4.89_src.tar
+$ cd lsof_4.89_src
+$ patch -p1 < lsof_4.89_src-hndtools-mipsel-linux-3.2.3.patch # optional obviously
+$ ./Configure linux
+... choose to customize, but don't take inventory ...
+... turn off warnings, runtime kernel check ...
+... accept other defaults ...
+$ make -j
 ```
 
-Copy the last line, the one that builds lsof. Replace the ```-Llib -llsof``` and replace it with ```lib/liblsof.a -static```
-
-You can then run ```file``` on your lsof binary and it should be statically linked in your architecture of choice
+It is important that you follow env.src if you want a cross-compile and/or statically linked executable
