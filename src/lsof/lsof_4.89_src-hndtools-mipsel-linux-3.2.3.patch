@@ -1,0 +1,25 @@
+diff -Naur lsof_4.89_src/dialects/linux/dsock.c lsof_4.89_src-hndtools-mipsel-linux-3.2.3/dialects/linux/dsock.c
+--- lsof_4.89_src/dialects/linux/dsock.c	2015-07-07 15:47:18.000000000 -0400
++++ lsof_4.89_src-hndtools-mipsel-linux-3.2.3/dialects/linux/dsock.c	2017-05-05 16:26:24.320253022 -0400
+@@ -37,7 +37,7 @@
+ 
+ 
+ #include "lsof.h"
+-#include <sys/xattr.h>
++// #include <sys/xattr.h>
+ 
+ 
+ #if	defined(HASEPTOPTS) && defined(HASUXSOCKEPT)
+@@ -4304,9 +4304,9 @@
+ 		prp = &Namech[i];
+ 		sz = (ssize_t)(Namechl - i - 1);
+ 	    }
+-	    if ((getxattr(pbr, "system.sockprotoname", prp, sz)) < 0) 
+-		enter_nm("can't identify protocol");
+-	    else
++//	    if ((getxattr(pbr, "system.sockprotoname", prp, sz)) < 0) 
++//		enter_nm("can't identify protocol");
++//	    else
+ 		enter_nm(Namech);
+ 	}
+ }
