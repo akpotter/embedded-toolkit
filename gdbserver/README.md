@@ -5,16 +5,17 @@ These were used mostly on embedded devices. They were tested thoroughly and work
 ## Inventory
 
 ```
-gdbserver-7.7.1-armel:              ELF 32-bit LSB executable, ARM, version 1, statically linked, for GNU/Linux 2.4.3
-gdbserver-7.7.1-armel-eabi5-sysv:   ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), statically linked, for GNU/Linux 2.6.26
-gdbserver-7.7.1-armhf-eabi5-sysv:   ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), statically linked, for GNU/Linux 2.6.26
+gdbserver-6.8-mips-i-rtl819x-lexra: ELF 32-bit MSB executable, MIPS, MIPS-I version 1 (SYSV), statically linked
+gdbserver-7.12-mipsel-i:            ELF 32-bit LSB executable, MIPS, MIPS-I version 1 (SYSV), statically linked
+gdbserver-7.7.1-armel-armv1:        ELF 32-bit LSB executable, ARM, version 1, statically linked
+gdbserver-7.7.1-armel-eabi5-sysv:   ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), statically linked
+gdbserver-7.7.1-armhf-eabi5-sysv:   ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), statically linked
+gdbserver-7.7.1-mipsel-ii:          ELF 32-bit LSB executable, MIPS, MIPS-II version 1, statically linked
 gdbserver-7.7.1-mipsel-mips32:      ELF 32-bit LSB executable, MIPS, MIPS32 version 1 (SYSV), statically linked
-gdbserver-7.7.1-mipsel-ii:          ELF 32-bit LSB executable, MIPS, MIPS-II version 1, statically linked, for GNU/Linux 2.6.26
-gdbserver-7.7.1-mips-ii:            ELF 32-bit MSB executable, MIPS, MIPS-II version 1, statically linked, for GNU/Linux 2.6.26
-gdbserver-7.7.1-mips-mips32:        ELF 32-bit MSB executable, MIPS, MIPS32 version 1, statically linked, for GNU/Linux 2.6.26
-gdbserver-7.7.1-mips-i:             ELF 32-bit MSB executable, MIPS, MIPS-I version 1 (SYSV), statically linked, not stripped
-gdbserver-6.8-mips-i-rtl819x-lexra: ELF 32-bit MSB executable, MIPS, MIPS-I version 1 (SYSV), statically linked, not stripped
-
+gdbserver-7.7.1-mips-i:             ELF 32-bit MSB executable, MIPS, MIPS-I version 1 (SYSV), statically linked
+gdbserver-7.7.1-mips-ii:            ELF 32-bit MSB executable, MIPS, MIPS-II version 1, statically linked
+gdbserver-7.7.1-mips-mips32:        ELF 32-bit MSB executable, MIPS, MIPS32 version 1, statically linked
+gdbserver-7.7.1-mips-mips32-sysv:   ELF 32-bit MSB executable, MIPS, MIPS32 version 1 (SYSV), statically linked
 ```
 
 These are not stripped, go ahead and strip them if you want. And once more, there are now many more than just gdbserver executables in this repository, explore the directory tree
