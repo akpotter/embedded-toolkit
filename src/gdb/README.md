@@ -1,6 +1,6 @@
 ## Notes and patches for building gdbserver from gdb-7.12 and gdb-7.7.1 statically (especially for cross-compiling)
 
-This is documentation and a few small patch files to make building statically linked gdbserver executables using various cross-compile toolchains. Patches included here are for the hndtools cross-compilers specifically but the build instructions will be helpful for any cross-compile toolchain. These same instructions are useful with musl-cross-make as well as OpenWrt pre-built toolchains
+This is documentation and a few small patch files to make building statically linked gdbserver executables using various cross-compile toolchains easier. The patches I've made here are for the hndtools cross-compilers specifically but the build instructions will be helpful for any cross-compile toolchain. These same instructions are useful with musl-cross-make as well as OpenWrt pre-built toolchains. There's nothing terrivly advanced here, but the removal of ```srv_linux_thread_db``` really saves a lot of time that could easily be wasted
 
 If you are using musl-cross-make or pre-built OpenWrt toolchains, take a look at the small scripts I use to make life easier @ https://github.com/mzpqnxow/gdb-7.12-crossbuilder
 
