@@ -5,4 +5,4 @@ Please see my small project @ https://github.com/mzpqnxow/gdb-7.12-crossbuilder,
 ## License
 
 This software is released by copyright@mzpqnxow.com under terms of the GPLv2
-Please see LICENSE or LICENSE.md for more information on GPLv2
+Please see LICENSE or LICENSE.md in the root of this repository for more information on GPLv2
