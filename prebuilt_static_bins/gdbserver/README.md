@@ -1,6 +1,6 @@
 ## Pre-built gdbserver executables for many platforms
 
-These were used mostly on embedded devices. They were tested thoroughly and work very well. Just make sure you use the right one or you will get funny errors or segmentation faults. Note some of these were built with musl but most were built with uClibc (in case you're interested)
+These were used mostly on embedded devices. They were tested thoroughly and work very well- most if not all should have the most compatible options, i.e. software floating point emulation, etc. Some are actually customized for a specific CPU (i.e. the lexra build) so you might need to try a few on an exotic target because I didn't document things well enough while building. If you don't use the right one or you will get funny errors or segmentation faults. An error that contain s a paren almost always means that the endianness is incorect. Note some of these were built with musl while some were built with uClibc (in case you're interested)
 
 ## Inventory
 
