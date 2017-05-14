@@ -1,5 +1,5 @@
 # arm-mips-tools
-Useful executables (statically linked via musl libc) for different variants of ARM and MIPS Linux systems (MSB, LSB, different ABIs, etc.) meant for doing low-level work on embedded devices
+Useful executables (statically linked via muslibc or uClibc) for different variants of ARM and MIPS Linux systems (MSB, LSB, different ABIs, etc.) meant for doing low-level work on modern or *ancient* embedded devices
 
 ## Intro
 
