@@ -41,4 +41,4 @@ If you'd like another target architecture, either file an issue or send a pull r
 
 ## General tips on performing a static build of GDB 7.7.1
 
-Please see https://github.com/mzpqnxow/gdb-7.12-crossbuilder which actually has information and some scripts to build an even more recent version of gdb, version 7.12. It also has some scripts to help you out if you're cross-compiling, which is usually the case with gdbserver, isn't it?
+Please see [gdb-static-cross](https://github.com/mzpqnxow/gdb-static-cross) which actually has information and some scripts to build an even more recent version of gdb, version 7.12. It also has some scripts to help you out if you're cross-compiling, which is usually the case with gdbserver, isn't it?
