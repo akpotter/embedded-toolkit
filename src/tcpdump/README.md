@@ -1,6 +1,6 @@
 # --- Specific to tcpdump
 
-Make sure libpcap.a has already been built and installed into your root. Edit the env.src file to match your configuration. Then the usual
+Make sure libpcap.a has already been built statically and installed into your root. Edit the env.src file to match your configuration. Then proceed as normal (assuming you sourced the [activate-script-helpers](https://github.com/mzpqnxow/gdb-static-cross/tree/master/activate-script-helpers) script appropriate for your toolchain)
 
 ```
 $ source env.src
