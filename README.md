@@ -1,6 +1,12 @@
 # embedded-toolkit
 Useful executables (statically linked via muslibc or uClibc) for different variants of ARM and MIPS Linux systems (MSB, LSB, different ABIs including the elusive ARMEL-OABI, etc.) meant for doing low-level work on modern or *ancient* embedded devices (yes, I worked with an ARMEL-OABI system in the year 2017)
 
+## Recursive clone
+
+```git clone --recursive https://github.com/mzpqnxow/embedded-toolkit```
+
+A recursive clone will pull in some toolchain helpers into build-script/ that are otherwise hosted @ ssh://github.com/mzpqnxow/gdb-static-cross
+
 ## Intro
 
 I recently needed a statically linked gdbserver for all of the above platforms, as well as some subtle variants- even MIPS-I and ARM with the "old" ABI! It was a little bit painful to build all of them, so I figured I would share them. If you find them useful, use them and let me know if you have issues, especially if you fix said issues. They are built from vanilla GDB 7.7.1 or gdb-7.12 sources, sometimes with patches found at [gdb-static-cross](https://github.com/mzpqnxow/gdb-static-cross) sometimes (rarely) with a small tweak to the final linking to get a static build- which should be an obsolete requirement if you use [gdb-static-cross](https://github.com/mzpqnxow/gdb-static-cross). When compiling on native architectures, in many cases I had to make sure the GDB build process didn't try to include thread support since there aren't any common packages (I've noticed) that have static libraries for libthread_db and the configure script will enable libthread_db if it detects it on your system. This is yet again provided for in [gdb-static-cross](https://github.com/mzpqnxow/gdb-static-cross)

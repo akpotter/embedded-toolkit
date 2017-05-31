@@ -1,0 +1,3 @@
+[submodule "build_scripts/gdb-static-cross"]
+	path = build_scripts/gdb-static-cross
+	url = ssh://github.com/mzpqnxow/gdb-static-cross
