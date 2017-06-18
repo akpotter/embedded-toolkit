@@ -1,6 +1,10 @@
 # embedded-toolkit
 Useful executables (statically linked via muslibc or uClibc) for different variants of ARM and MIPS Linux systems (MSB, LSB, different ABIs including the elusive ARMEL-OABI, etc.) meant for doing low-level work on modern or *ancient* embedded devices (yes, I worked with an ARMEL-OABI system in the year 2017)
 
+## Target OS
+
+Just to be clear: this is Linux OS only stuff. No Solaris, AIX, etc, etc.. the aim was embedded devices, hence the title
+
 ## Recursive clone
 
 ```git clone --recursive https://github.com/mzpqnxow/embedded-toolkit```
