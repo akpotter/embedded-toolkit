@@ -1,0 +1,12 @@
+diff -Naur gdb-7.12/gdb/common/signals-state-save-restore.c gdb-7.12-mips32rel2-fixed/gdb/common/signals-state-save-restore.c
+--- gdb-7.12/gdb/common/signals-state-save-restore.c	2016-10-07 13:04:17.000000000 -0400
++++ gdb-7.12-mips32rel2-fixed/gdb/common/signals-state-save-restore.c	2017-06-17 17:45:54.836165085 -0400
+@@ -42,8 +42,6 @@
+   int res;
+ 
+   res = sigprocmask (0,  NULL, &original_signal_mask);
+-  if (res == -1)
+-    perror_with_name (("sigprocmask"));
+ 
+   for (i = 1; i < NSIG; i++)
+     {
