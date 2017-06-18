@@ -152,18 +152,20 @@ function main() {
 
     NEW_PASSWORD="$2"
     echo "[+] Splicing new password $NEW_PASSWORD into tsh/tshd binaries ..."
-    
-    ORIGINAL_PASSWORD=$($CAT $TSH_HEADER | $GREP secret | $CUT -d '"' -f 2)
+
+    # ORIGINAL_PASSWORD=$($CAT $TSH_HEADER | $GREP secret | $CUT -d '"' -f 2)
+    # The builds in the embedded-toolkit repository used the following as the default secret
+    ORIGINAL_PASSWORD='DEFAULTDEFAULTDEFAULTDEFAULTDEF'
     SECRET_MAXLEN=$(echo "$ORIGINAL_PASSWORD" | $WC -c | $CUT -d ' ' -f 1)
     SECRET_MAXLEN="$[$SECRET_MAXLEN-1]"
     echo "[+] Determined from tsh.h a maximum secret size of ${SECRET_MAXLEN} bytes ..."
-    
+
     PADDED_PASSWORD_FILE=$(pad_null "$NEW_PASSWORD" "$SECRET_MAXLEN")
     echo "[+] Built a NULL padded buffer of $SECRET_MAXLEN bytes containing new password ..."
-    
+
     ORIGINAL_PASSWORD="$($CAT $TSH_HEADER | $GREP 'secret' | $CUT -d '"' -f 2)"
     echo "[+] Grabbed the 'base' original password from the header file ..."
-    
+
     echo "[+] Making sure base binaries $TSH and $TSHD were built from this tsh.h file ..."
     $GREP "$ORIGINAL_PASSWORD" $TSHD 2>&1 >/dev/null || fatal "password in $TSH_H does not match password in $TSHD binary. Cannote perform replacement" 42
     $GREP "$ORIGINAL_PASSWORD" $TSH 2>&1 >/dev/null || fatal "password in $TSH_H does not match password in $TSH binary. Cannot perform replacement" 42
@@ -172,7 +174,6 @@ function main() {
     TSH_PASS_OFFSET=$(echo $TSH_PASS_OFFSET | $CUT -d ':' -f 1)  || fatal "Bad output when parsing grep output from $TSH" 42
     printf "[*] Successfully found secret @ file offset 0x%x in $TSH\n" "$TSH_PASS_OFFSET"
     echo "[+] Performing splice of new password into $TSH_NEW .."
-    
     $CP $TSH $TSH_NEW
     $DD status=none if="$PADDED_PASSWORD_FILE" of="$TSH_NEW" bs=1 seek="$TSH_PASS_OFFSET" conv=notrunc || fatal "$DD failed in tsh new" 42
     echo "  [*] Done, created $TSH_NEW for deployment!"
