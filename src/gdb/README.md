@@ -116,3 +116,16 @@ make[1]: Leaving directory '/home/debian/Downloads/gdb-7.12/gdb/gdbserver'
 Makefile:314: recipe for target 'all-lib' failed
 make: *** [all-lib] Error 2
 ```
+
+## Notes on MIPS32Rel2 builds
+
+There is a bug in gdb-7.12 that kills gdbserver on start, this can be fixed at build time by patching the source
+
+```
+$ cd gdb-7.12
+$ patch -p1 < /path/to/gdb-7.12-mips32rel2-sigprocmask-bug.patch
+$ ...
+```
+
+The prebuilt gdbserver builds for mips32rel2 are updated with this patch so they should work fine. Note you may need to use ```--disable-packet=threads``` option when starting the gdbserver binary for some builds
+
