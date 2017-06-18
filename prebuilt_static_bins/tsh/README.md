@@ -10,3 +10,6 @@ Well, even if I signed them, you don't know who I am, and I'm not going to a key
 
 If you can prove that these were backdoored by me (i.e. that they don't behave as the source code does in such a way that allows unauthorized access to the tshd system or client) then i will award you $10mm USD
 
+## Changing default cb ip or listening port
+
+Yeah, well, sorry, you're stuck with the port unless you have the (not all that difficult) skill of finding the hardcoded integer (or immediate in the asm instruction, objdump -d is your friend) and replacing it yourself. I'll give you a script for that if you want..
