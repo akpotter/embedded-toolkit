@@ -1,6 +1,6 @@
 ## Changing the hardcoded secret without needing to rebuild
 
-If you use these binaries "stock" then in theory anyone can access your instance of tshd due to the fact that the secret is embedded in the binary. To deal with this problem, use [https://github.com/mzpqnxow/embedded-toolkit/blob/master/src/tsh/splice_secret.sh](splice_secret.sh) to change the passphrase
+If you use these binaries "stock" then in theory anyone can access your instance of tshd due to the fact that the secret is embedded in the binary. To deal with this problem, use [https://github.com/mzpqnxow/embedded-toolkit/blob/master/src/tsh/splice_secret.sh](splice_secret.sh) to change the passphrase. Unfortunately, this script isn't exactly user-friendly. In a nutshell, all it does is replace a 'default' password in the tsh and tshd binaries with a new password. The password must not contain NULL bytes, and the new password must/will be the same length as the default password. The default password these were built with is 'DEFAULTDEFAULTDEFAULTDEFAULTDEF\0'
 
 ## These aren't signed, I don't trust them
 
