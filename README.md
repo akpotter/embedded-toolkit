@@ -19,7 +19,7 @@ This repository has, since creation, expanded to include more than gdbserver (se
 
 The following software packages are being added slowly for different CPU architectures with varying instruction sets, byte-order, and ABI. They are all statically linked, meant to run standalone on any Linux system, intended for embedded devices. A small handful are untested so YMMV. Only gdbserver has been thoroughly tested. You will only find a few different builds of the following tools in this repository
 
-* tcpdump (statically linked)
+* tcpdump (statically linked
 * gawk (statically linked)
 * lsof (statically linked)
 * gdbserv (statically linked)
@@ -27,7 +27,7 @@ The following software packages are being added slowly for different CPU archite
 * mawk (statically linked)
 * libpcap (static library, used for linking into tcpdump so not present in this repo)
 
-These tools are all of obvious value on embedded devices, except mayhe gawk. Why gawk?
+These tools are all of obvious value on embedded devices when doing things like reverse engineering/redteam testing/other low-level fiddling, except maybe gawk. Why gawk?
 
 ```
 $ while [ 1 ];
@@ -41,13 +41,25 @@ This is a lot easier than checking the PID after manually restarting the process
 
 ## Notes
 
-* A few of these executables are linked with glibc, unfortunately. This is a problem, moreso for some applications than others. They are slowly all being built with musl libc or uClibc to get rid of all the issues with nsswitch.conf/libnss, which requires dynamic library loading via libdl
-* There is no threading support in gdbserver right now, intentionally, sorry. It's just a choice I made and I don't want to go back and rebuild
+* When possible, these executables were built using musl as libc, but some were built with uClibc
+* Some stuff may support or not support something you wanted (i.e. threading, IPv6, etc) and you're just stuck with the judgement call I made at the time :/
 * Yes, you have to just trust me on these being 'safe' otherwise you can go build your own - I offer a $500 bug bounty to anyone who can find a backdoor planted by me (seriously, because I'm sure I didn't)
+
+## High level supported targets
+
+At least one of these binaries will work on almost any consumer router or other Linux based embedded device you can find:
+
+* Linksys (err, Cisco)
+* NETGEAR
+* D-Link
+* Asus
+* .. etc, etc. .. 
+
+Also the i486 and x86_64 versions will obviously work on commodity Linux workstations and servers
 
 ## Other targets
 
-If you'd like another target architecture, either file an issue or send a pull request with your own after you've tested it, I'd be happy to have a wider collection of these as I do a fair amount of work on embedded devices and seem to always be coming across obscure ones that I don't already have a build for
+If you'd like another target architecture, either file an issue or send a pull request with your own after you've tested it, I'd be happy to have a wider collection of these as I do a fair amount of work on embedded devices and seem to always be coming across obscure ones that I don't already have a build for.
 
 ## General tips on performing a static build of GDB 7.7.1
 
