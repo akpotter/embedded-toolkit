@@ -1,4 +1,4 @@
-# Obsoleted by [https://github.com/mzpqnxow/gdb-static-cross](gdb-static-cross)
+# Obsoleted by [https://github.com/mzpqnxow/gdb-static-cross](gdb-static-cross) but you can still use these binaries and I'll try to keep them in sync
 
 First, please see [https://github.com/mzpqnxow/gdb-static-cross](gdb-static-cross) rather than following these steps as I believe I obsoleted this particular build with that repository. It has patches for the below issues and is much simpler
 
